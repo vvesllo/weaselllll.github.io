@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	{{ tests_data[tag]["title"] }} - проверка
+{% endblock %}
+
+{% block content %}
+	<h1>{{ tests_data[tag]["title"] }}</h1>
+	{% set wrong = namespace(i=0) %}
+	{% set index = namespace(i=0) %}
+	{% for user_answer in user_answers %}
+		{% if user_answer == correct_answers[index.i] %}
+			{{ index.i+1 }}. {{ user_answer }} - Правильно<br>
+		{% else %}
+			{{ index.i+1 }}. {{ user_answer }} - Неправильно (правильный ответ: {{ correct_answers[index.i] }})<br>
+			{% set wrong.i = wrong.i+1 %}
+		{% endif %}
+		{% set index.i = index.i+1 %}
+	{% endfor %}
+    Количество ошибок: {{ wrong.i }} из {{ index.i }} <br><h2>Процент выполнения: {{ ((index.i-wrong.i)*100 / index.i)|round(1) }}%</h2><br>
+	{% if wrong.i > 0 %}
+		<hr>
+		<h4>Теория по этой теме:</h4>
+		 <i>{{ tests_data[tag]["theory"] | safe }}</i>
+	{% endif %}
+{% endblock %}

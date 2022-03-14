@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Теория
+{% endblock %}
+
+{% block content %}
+    <div align="center" class="item">
+        <ol>
+            {% for tag in theory_data %}
+                <li><a href="#{{ tag }}">{{ theory_data[tag]["title"] }}</a></li>
+            {% endfor %}
+        </ol>
+    </div>
+	<br>
+	<hr>
+	<br>
+	<div align="center">
+		<div class="theory-text-container">
+            {% for tag in theory_data %}
+                <div class="item">
+                    <section id="{{tag}}"><h3>{{ theory_data[tag]["title"]}}</h3></section>
+                    <p>{{ theory_data[tag]["theory"] | safe }}</p><br>
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+	</div>
+{% endblock %}

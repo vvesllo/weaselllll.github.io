@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{% endblock %} - 10A</title>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='media.css') }}">
+	<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+<body>
+	<div class="wrapper">
+		
+		<div class="header"><img src="https://avatars.mds.yandex.net/i?id=167c306b876bd85dbc53cf4b231e2819-5877993-images-thumbs&n=13&exp=1" align="middle"></div>
+		<div class="top_menu">Меню:<br>
+		<a href="/tests-list">Тесты</a>
+		<a href="/">Главная</a>
+		<a href="/theory">Теория</a>
+		<a href="/about">О<span class="invisible">-</span>проекте</a>
+		</div>
+
+		{% block content %}
+
+		{% endblock %}
+		<div class="clear"></div>
+		<div class="footer"><i id="git-url"><a href="https://github.com/weaselllll">GitHub</a></i></div>
+	</div>
+</body>
+</html>

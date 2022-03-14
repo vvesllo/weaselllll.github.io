@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	{{ tests_data[tag]["title"] }} - тест
+{% endblock %}
+
+{% block content %}
+	<h1 align=center>{{ tests_data[tag]["title"] }}</h1>
+<!-- 	<div> -->
+    {% set index = namespace(i=0) %}
+    <form action="/check/{{ tag }}" method="POST">
+        <div class="test-form">
+            {% for test in tests_data[tag]["tests"] %}
+                <div class="item">
+
+                    {% set index.i = index.i + 1 %}
+                    {{ index.i }}. {{ test["question"] | safe}}<br>
+
+
+                    {% for answer in test["answers"] %}
+                        <input class="form-input" type="{{ test['type'] }}" name="{{ tests_data[tag]['tests'].index(test) }}" value="{{ answer }}">  {{ answer }}</input><br>
+                    {% endfor %}
+
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+        <input type="submit" value="Завершить">
+    </form>
+<!-- 	</div> -->
+{% endblock %}

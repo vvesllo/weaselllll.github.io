@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Тесты
+{% endblock %}
+
+{% block content %}
+    <h1>Список тестов:</h1>
+    {% set index = namespace(i=0) %}
+    <div class="tests-list-items">
+        {% for test in tests_data %}
+            <div class="item">
+                {% set index.i = index.i+1 %}
+                <p style="font-size: 1.5em"><a href="/test/{{ test }}">{{ index.i }}. {{ tests_data[test]["title"] }} ({{ tests_data[test]["tests"]|length }} шт.)</a></p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

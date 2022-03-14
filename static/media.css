@@ -1,0 +1,51 @@
+@media only screen and (max-width: 480px)
+{
+    input[type=submit]
+    {
+        width: 100%;
+    }
+    .tests-list-items
+    {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+
+    .INDEX-main
+    {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
+
+	.content
+	{
+		width: 95.1%;
+		float: none;
+	}
+	.sideRight
+	{
+		width: 95.1%;
+		float: none;
+	}
+
+    .theory-example-roots
+    {
+        max-width: 100%;
+    }
+
+    .theory-example
+    {
+        max-width: 100%;
+    }
+
+    .theory-example-info
+    {
+        max-width: 100%;
+    }
+    .theory-example-warn
+    {
+        max-width: 100%;
+    }
+}
